@@ -1,0 +1,38 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+    Inicio
+{% endblock %}
+
+{% block parrafo %}
+
+    <p>Este es el contenido de la página de inicio</p>
+    <!-- Formulario de búsqueda de cursos -->
+    <form action="{% url 'home' %}" method="get">
+        <input type="number" name="comision" placeholder="Comisión">
+        <input type="submit" value="Buscar cursos">
+    </form>
+
+    <!-- Resultados de la búsqueda de cursos -->
+    {% for curso in cursos %}
+        <div>
+            <p></p>
+            <h3>curso/s encontrados: </h3>
+            <h5>nombre del curso: {{ curso.nombre }} - - - comision: {{curso.comision}}</h5>  <!-- Reemplaza 'nombre' con el campo real de tu modelo Curso -->
+            <!-- Agrega más campos del curso aquí si lo deseas -->
+        </div>
+    {% empty %}
+        <p>No hay cursos disponibles.</p>
+    {% endfor %}
+{% endblock %}
+
+{% block barra %}
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">inicio</a>
+        <a class="navbar-brand" href="{% url 'ver cursos' %}">Cursos</a>
+        <a class="navbar-brand" href="{% url 'ver entregables' %}">Entregas</a>
+        <a class="navbar-brand" href="{% url 'ver estudiantes' %}">Estudiantes</a>
+        <a class="navbar-brand" href="{% url 'ver profesores' %}">Profesores</a>
+        <a class="btn btn-primary" href="#signup">Registrarse</a>
+    </div>
+{% endblock%}

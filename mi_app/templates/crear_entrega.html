@@ -1,0 +1,34 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+    Crear Entrega
+{% endblock %}
+
+
+{%block parrafo%}
+
+<form action= "/AC/crear_entrega/" method="post"> <!--el action es la url a la que se va a enviar el formulario,   y cuando se termine de concretar todo te lleva al inicio-->
+    {% csrf_token %}
+    <p></p>
+    <p>ingrese nombre: <input type="text" name="nombre" placeholder="Nombre"></p>
+    <p>ingrese fecha de entrega: <input type="date" name="fecha_entrega" placeholder="fecha_entrega"></p>
+    <p>ingrese descripcion: <input type="text" name="descripcion" placeholder="descripcion"></p>
+    <p><input type="submit" value="Enviar" placeholder= "enviar"></p>
+
+</form>
+
+{%endblock%}
+
+
+{% block barra %}
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">inicio</a>
+        <a class="navbar-brand" href="{% url 'ver cursos' %}">Cursos</a>
+        <a class="navbar-brand" href="{% url 'ver entregables' %}">Entregas</a>
+        <a class="navbar-brand" href="{% url 'ver estudiantes' %}">Estudiantes</a>
+        <a class="navbar-brand" href="{% url 'ver profesores' %}">Profesores</a>
+
+
+        <a class="btn btn-primary" href="#signup">Registrarse</a>
+    </div>
+{% endblock%}

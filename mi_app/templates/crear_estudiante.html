@@ -1,0 +1,35 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+    Crear Estudiantes
+{% endblock %}
+
+
+{%block parrafo%}
+
+<form action= "/AC/crear_estudiantes/" method="post"> 
+    {% csrf_token %}
+    <p></p>
+    <p>ingrese nombre: <input type="text" name="nombre" placeholder="Nombre"></p>
+    <p>ingrese apellido: <input type="text" name="apellido" placeholder="Apellido"></p>
+    <p>ingrese edad: <input type="number" name="edad" placeholder="Edad"></p>
+    <p>ingrese email: <input type="email" name="email" placeholder="Email"></p>
+    <p><input type="submit" value="Enviar" placeholder= "enviar"></p>
+
+</form>
+
+{%endblock%}
+
+
+{% block barra %}
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">inicio</a>
+        <a class="navbar-brand" href="{% url 'ver cursos' %}">Cursos</a>
+        <a class="navbar-brand" href="{% url 'ver entregables' %}">Entregas</a>
+        <a class="navbar-brand" href="{% url 'ver estudiantes' %}">Estudiantes</a>
+        <a class="navbar-brand" href="{% url 'ver profesores' %}">Profesores</a>
+
+
+        <a class="btn btn-primary" href="#signup">Registrarse</a>
+    </div>
+{% endblock%}

@@ -1,0 +1,34 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+    Estudiantes
+{% endblock %}
+
+{% block parrafo %}
+
+    <p>Este es el contenido de la página estudiantes</p>
+    {% for estudiante in estudiantes %}
+        <div>
+            <h2>{{ estudiante.nombre }}</h2>
+        </div>
+    {% empty %}
+        <p>No hay estudiantes disponibles.</p>
+    {% endfor %}
+
+    <p></p><input type="button" value="Agregar estudiante" onclick="location.href='{% url 'crear estudiante' %}'">
+
+{% endblock %}
+
+{% block barra %}
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">inicio</a>
+        <a class="navbar-brand" href="{% url 'ver cursos' %}">Cursos</a>
+        <a class="navbar-brand" href="{% url 'ver entregables' %}">Entregas</a>
+        <a class="navbar-brand" href="{% url 'ver estudiantes' %}">Estudiantes</a>
+        <a class="navbar-brand" href="{% url 'ver profesores' %}">Profesores</a>
+
+
+        <a class="btn btn-primary" href="#signup">Registrarse</a>
+    </div>
+{% endblock%}
+

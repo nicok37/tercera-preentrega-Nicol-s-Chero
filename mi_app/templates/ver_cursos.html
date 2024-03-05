@@ -1,0 +1,35 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+    Cursos
+{% endblock %}
+
+
+{% block parrafo %}
+
+    <p>cursos disponibles:</p>
+    
+    {% for curso in cursos %}
+        <div>
+            <h5>{{ curso.nombre }} - - - {{curso.comision}}</h5>
+        </div>
+    {% empty %}
+        <p>     No hay cursos disponibles.</p>
+    {% endfor %}
+
+    <p></p><input type="button" value="Agregar Curso" onclick="location.href='{% url 'crear curso' %}'">
+
+{% endblock %}
+
+{% block barra %}
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">inicio</a>
+        <a class="navbar-brand" href="{% url 'ver cursos' %}">Cursos</a>
+        <a class="navbar-brand" href="{% url 'ver entregables' %}">Entregas</a>
+        <a class="navbar-brand" href="{% url 'ver estudiantes' %}">Estudiantes</a>
+        <a class="navbar-brand" href="{% url 'ver profesores' %}">Profesores</a>
+
+
+        <a class="btn btn-primary" href="#signup">Registrarse</a>
+    </div>
+{% endblock%}

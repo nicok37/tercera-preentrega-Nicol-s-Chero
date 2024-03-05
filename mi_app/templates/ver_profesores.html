@@ -1,0 +1,35 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+    Profesores
+{% endblock %}
+
+{% block parrafo %}
+
+    <p>Este es el contenido de la página profesores</p>
+    {% for profesor in profesores %}
+        <div>
+            <h2>{{ profesor.nombre }}</h2>  <!-- Reemplaza 'nombre' con el campo real de tu modelo Estudiante -->
+            <!-- Agrega más campos del estudiante aquí si lo deseas -->
+        </div>
+    {% empty %}
+        <p>No hay profesores disponibles.</p>
+    {% endfor %}
+
+    <p></p><input type="button" value="Agregar profesor" onclick="location.href='{% url 'crear profesores' %}'">
+
+{% endblock %}
+
+{% block barra %}
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">inicio</a>
+        <a class="navbar-brand" href="{% url 'ver cursos' %}">Cursos</a>
+        <a class="navbar-brand" href="{% url 'ver entregables' %}">Entregas</a>
+        <a class="navbar-brand" href="{% url 'ver estudiantes' %}">Estudiantes</a>
+        <a class="navbar-brand" href="{% url 'ver profesores' %}">Profesores</a>
+
+
+        <a class="btn btn-primary" href="#signup">Registrarse</a>
+    </div>
+{% endblock%}
+
